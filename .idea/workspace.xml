@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="260ad5ab-ef47-4af2-9a94-3865a1ba4c06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/rang/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/rang/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rang/android/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/rang/android/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rang/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/rang/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rang/android/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,6 +33,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -33,12 +42,41 @@
               <item name="rang_3" type="b2602c69:ProjectViewProjectNode" />
               <item name="rang_3" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rang_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rang_3" type="462c0819:PsiDirectoryNode" />
+              <item name="rang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rang_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rang_3" type="462c0819:PsiDirectoryNode" />
+              <item name="rang" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rang_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rang_3" type="462c0819:PsiDirectoryNode" />
+              <item name="rang" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rang_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rang_3" type="462c0819:PsiDirectoryNode" />
+              <item name="rang" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rang_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rang_3" type="462c0819:PsiDirectoryNode" />
+              <item name="rang" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="flutter_assets" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -73,9 +111,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="140" y="43" width="1400" height="987" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.33431518" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.34462446" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -94,5 +133,10 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Flutter Performance" order="6" />
     </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/rang/android/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
 </project>
