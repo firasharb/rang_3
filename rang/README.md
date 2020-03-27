@@ -1,6 +1,6 @@
-# rang3
+# rang
 
-Rang 3 flutter application
+App for the rang project
 
 ## Getting Started
 

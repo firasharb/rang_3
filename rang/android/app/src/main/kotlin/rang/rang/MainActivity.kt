@@ -1,4 +1,4 @@
-package rang3.rang3
+package rang.rang
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
