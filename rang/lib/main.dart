@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
+import 'activity_log.dart';
+import 'live_stream.dart';
+import 'devices.dart';
+import 'users.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,6 +15,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   Widget mainWidget = Home();
+  var mainAppBarTitle = "Home";
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +24,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context) =>
             Scaffold(
               appBar: AppBar(
+                title: Text(mainAppBarTitle),
               ),
               drawer: Drawer(
                 child: ListView(
@@ -28,6 +35,7 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         setState(() {
                           mainWidget = Home();
+                          mainAppBarTitle = "Home";
                         });
                         Navigator.pop(context);
                       },
@@ -37,6 +45,7 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         setState(() {
                           mainWidget = ActivityLog();
+                          mainAppBarTitle = "Activity Log";
                         });
                         Navigator.pop(context);
                       },
@@ -46,6 +55,7 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         setState(() {
                           mainWidget = LiveStream();
+                          mainAppBarTitle = "Live Stream";
                         });
                         Navigator.pop(context);
                       },
@@ -55,6 +65,7 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         setState(() {
                           mainWidget = Devices();
+                          mainAppBarTitle = "Devices";
                         });
                         Navigator.pop(context);
                       },
@@ -64,6 +75,7 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         setState(() {
                           mainWidget = Users();
+                          mainAppBarTitle = "Users";
                         });
                         Navigator.pop(context);
                       },
@@ -75,66 +87,6 @@ class _MyAppState extends State<MyApp> {
             ),
       ),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Home Page"),
-      ),
-    );
-  }
-}
-
-class ActivityLog extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Activity Log"),
-      ),
-    );
-  }
-}
-
-class LiveStream extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Live Stream"),
-      ),
-    );
-  }
-}
-
-class Devices extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Devices"),
-      ),
-    );
-  }
-}
-
-class Users extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("Users"),
-      ),
     );
   }
 }
