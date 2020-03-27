@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "334130753923",
+    "firebase_url": "https://ring3-98e61.firebaseio.com",
+    "project_id": "ring3-98e61",
+    "storage_bucket": "ring3-98e61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334130753923:android:35fdff47462a5b332086b6",
+        "android_client_info": {
+          "package_name": "com.rang.rang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334130753923-9semd5ipqnvo788b50v0dnlt1j7v4uhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvkJcV8701SHsfOuYVvlYV2zlmz6oATpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334130753923-9semd5ipqnvo788b50v0dnlt1j7v4uhm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "334130753923-dl26fach4unhu42mue15qg56ik5g3bbd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "rang.rang"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
