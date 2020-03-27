@@ -16,63 +16,63 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Builder(
         builder: (context) =>
-        Scaffold(
-        appBar: AppBar(
-        ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              ListTile(
-                title: Text('Home'),
-                onTap: () {
-                  setState(() {
-                    mainWidget = Home();
-                  });
-                  Navigator.pop(context);
-                },
+            Scaffold(
+              appBar: AppBar(
               ),
-              ListTile(
-                title: Text('Activity Log'),
-                onTap: () {
-                  setState(() {
-                    mainWidget = ActivityLog();
-                  });
-                  Navigator.pop(context);
-                },
+              drawer: Drawer(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    ListTile(
+                      title: Text('Home'),
+                      onTap: () {
+                        setState(() {
+                          mainWidget = Home();
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Activity Log'),
+                      onTap: () {
+                        setState(() {
+                          mainWidget = ActivityLog();
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Live Stream'),
+                      onTap: () {
+                        setState(() {
+                          mainWidget = LiveStream();
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Devices'),
+                      onTap: () {
+                        setState(() {
+                          mainWidget = Devices();
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      title: Text('Users'),
+                      onTap: () {
+                        setState(() {
+                          mainWidget = Users();
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
               ),
-              ListTile(
-                title: Text('Live Stream'),
-                onTap: () {
-                  setState(() {
-                    mainWidget = LiveStream();
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Devices'),
-                onTap: () {
-                  setState(() {
-                    mainWidget = Devices();
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text('Users'),
-                onTap: () {
-                  setState(() {
-                    mainWidget = Users();
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
-        body: mainWidget,
-      ),
+              body: mainWidget,
+            ),
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -84,10 +84,10 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: Text("Home Page"),
-        ),
-      );
+      body: Center(
+        child: Text("Home Page"),
+      ),
+    );
   }
 }
 
@@ -96,9 +96,9 @@ class ActivityLog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: Text("Activity Log"),
-        ),
+      body: Center(
+        child: Text("Activity Log"),
+      ),
     );
   }
 }
@@ -108,9 +108,9 @@ class LiveStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: Text("Live Stream"),
-        ),
+      body: Center(
+        child: Text("Live Stream"),
+      ),
     );
   }
 }
@@ -120,9 +120,9 @@ class Devices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body: Center(
-            child: Text("Devices"),
-          ),
+      body: Center(
+        child: Text("Devices"),
+      ),
     );
   }
 }
@@ -132,9 +132,9 @@ class Users extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: Text("Users"),
-        ),
+      body: Center(
+        child: Text("Users"),
+      ),
     );
   }
 }
