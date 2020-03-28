@@ -87,6 +87,11 @@ class _MyAppState extends State<MyApp> {
             ),
       ),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+      primaryColor: const Color(0xFF02BB9F),
+      primaryColorDark: const Color(0xFF167F67),
+      accentColor: const Color(0xFF167F67),
+    ),
     );
   }
 }
