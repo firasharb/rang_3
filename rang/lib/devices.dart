@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// select device to use
+// set up a new device
 
 class Devices extends StatelessWidget {
 
