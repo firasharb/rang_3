@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class ActivityLog extends StatelessWidget {
+class ActivityLog extends StatelessWidget { // page
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ActivityLog extends StatelessWidget {
   }
 }
 
-class ActivityList extends StatelessWidget {
+class ActivityList extends StatelessWidget { // list
   final activity = ["Motion detected at 12:30","Missed ring at 12:31", "Motion detected at 6:45",
    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
