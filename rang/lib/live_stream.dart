@@ -1,6 +1,7 @@
 //the livestream will be displayed on this widget 
 //importing the necessary files 
 import 'package:flutter/material.dart';
+import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player_controller.dart';
 
@@ -10,7 +11,7 @@ class StreamBox extends StatefulWidget {
 }
 
 class _StreamBoxState extends State<StreamBox> {
-  String _streamUrl = "http://raspberrypi:8081/";
+  String _streamUrl;
   VlcPlayerController _vlcViewController;
 
   @override
@@ -20,30 +21,54 @@ class _StreamBoxState extends State<StreamBox> {
   }
   void _refresh(){
     setState(() {
-      _streamUrl = "http://raspberrypi:8081/";
+      if (_streamUrl != null) {
+        _streamUrl = null;
+      } else {
+        _streamUrl = "http://raspberrypi:8081/";
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return 
-      Scaffold(
-        body:Center(
-          child:Column(
+    return Scaffold(
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[new VlcPlayer(defaultWidth: 1024,
-            defaultHeight: 768,
-            url: _streamUrl, 
-            controller: _vlcViewController,
-            placeholder: Container(),
-            )]
-       )
+          children: <Widget>[
+            _streamUrl == null
+                ? Container(
+                    child: Center(
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Stream Closed',
+                            style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                background: Paint()..color = Colors.red),
+                          )
+                        ]),
+                      ),
+                    ),
+                  )
+                : new VlcPlayer(
+                    defaultHeight: 480,
+                    defaultWidth: 640,
+                    url: _streamUrl,
+                    controller: _vlcViewController,
+                    placeholder: Container(),
+                  )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _refresh,
-        child: Icon(Icons.refresh) 
-        ),
-      );
+        tooltip: 'Play/Pause',
+        child: Icon(_streamUrl == null ? Icons.play_arrow : Icons.pause),
+      ),
+    );
   }
 }
 
