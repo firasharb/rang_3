@@ -2,9 +2,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:rang/plugins/firetop/storage/fire_storage_service.dart';
 
-final Color yellow = Color(0xfffbc31b);
-final Color orange = Color(0xfffb6900);
-String image = "data/20:26 on 30-03-2020 .jpg";
+
+String image = "data/20:26 on 30-03-2020 .jpg"; //This is just to test wether the image will be displayed
 
 
 class Home extends StatelessWidget {
