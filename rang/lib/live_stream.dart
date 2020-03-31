@@ -1,7 +1,6 @@
 //the livestream will be displayed on this widget 
 //importing the necessary files 
 import 'package:flutter/material.dart';
-import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player_controller.dart';
 
@@ -46,8 +45,8 @@ class _StreamBoxState extends State<StreamBox> {
                             style: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                background: Paint()..color = Colors.red),
+                                color: Colors.blue,
+                                ),
                           )
                         ]),
                       ),

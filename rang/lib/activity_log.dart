@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+class ActivityEvent {
+  String date;
+}
+
 
 class ActivityLog extends StatelessWidget { // page
 

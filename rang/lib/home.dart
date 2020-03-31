@@ -4,7 +4,7 @@ import 'package:rang/plugins/firetop/storage/fire_storage_service.dart';
 
 final Color yellow = Color(0xfffbc31b);
 final Color orange = Color(0xfffb6900);
-String image = "images/dog.jpg";
+String image = "data/20:26 on 30-03-2020 .jpg";
 
 
 class Home extends StatelessWidget {
@@ -17,6 +17,7 @@ class Home extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoadFirebaseStorageImage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
