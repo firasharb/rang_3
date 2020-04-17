@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
+import 'play_video/play_video.dart';
 
 class ActivityEvent {
   String date;
@@ -59,7 +61,7 @@ class _ListPageState extends State<ListPage> {
                       imageUrl: snapshot.data[index].data['image_url'],
                       errorWidget: (context, url, error) => new Icon(Icons.error),
                     ),
-                    onTap: () => navigateToFullSizeImage(snapshot.data[index]),
+                      onTap: () => navigateToFullSizeImage(snapshot.data[index]),
                   ),
                 );
 
@@ -89,9 +91,10 @@ class _FullSizeImageState extends State<FullSizeImage> {
       ),
       body: Center(
         child: Container(
-          child: CachedNetworkImage(
-            imageUrl: widget.post.data['image_url'],
-            errorWidget: (context, url, error) => new Icon(Icons.error),
+          child: PlayVideo(
+            videoPlayerController: VideoPlayerController.network(
+              widget.post.data['video_url'],
+            ),
           ),
         ),
       ),

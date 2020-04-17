@@ -46,6 +46,9 @@ dependencies:
   #Cached Network Image Dependency
   cached_network_image: ^2.0.0
 
+  #Chewie Video Player Dependency 
+  chewie: ^0.9.10
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
