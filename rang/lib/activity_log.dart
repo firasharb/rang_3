@@ -33,6 +33,10 @@ class _ListPageState extends State<ListPage> {
 
   }
 
+  navigateToFullSizeImage(DocumentSnapshot post) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => FullSizeImage(post: post, )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,6 +60,7 @@ class _ListPageState extends State<ListPage> {
                       imageUrl: snapshot.data[index].data['image_url'],
                       errorWidget: (context, url, error) => new Icon(Icons.error),
                     ),
+                    onTap: () => navigateToFullSizeImage(snapshot.data[index]),
                   ),
                 );
 
@@ -66,33 +71,31 @@ class _ListPageState extends State<ListPage> {
   }
 }
 
+class FullSizeImage extends StatefulWidget {
 
+  final DocumentSnapshot post;
 
+  FullSizeImage({ this.post });
 
-// class ActivityList extends StatelessWidget { // list
-//   final activity = ["Motion detected at 12:30","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00","Missed ring at 12:31", "Motion detected at 6:45",
-//    "Motion detected at 8:00", "Ring at 8:00"];
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.separated(
-//       itemCount: activity.length,
-//       itemBuilder: (context, index){
-//         return ListTile(
-//           title: Text(activity[index]),
-//           onTap: (){},
-//         );
-//       },
-//       separatorBuilder: (context, index){
-//         return Divider();
-//       },
-//     );
-//   }
-// }
+  @override
+  _FullSizeImageState createState() => _FullSizeImageState();
+}
+
+class _FullSizeImageState extends State<FullSizeImage> {
+  @override 
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.post.data['name']),
+      ),
+      body: Center(
+        child: Container(
+          child: CachedNetworkImage(
+            imageUrl: widget.post.data['image_url'],
+            errorWidget: (context, url, error) => new Icon(Icons.error),
+          ),
+        ),
+      ),
+    );
+  }
+}
