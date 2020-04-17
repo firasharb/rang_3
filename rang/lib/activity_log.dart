@@ -55,7 +55,6 @@ class _ListPageState extends State<ListPage> {
                 return Card(
                   child: ListTile(
                     title: Text(snapshot.data[index].data['name']),
-                    subtitle: Text("The age of this person is: ${snapshot.data[index].data['age']}"),
                     leading: CachedNetworkImage(
                       imageUrl: snapshot.data[index].data['image_url'],
                       errorWidget: (context, url, error) => new Icon(Icons.error),
