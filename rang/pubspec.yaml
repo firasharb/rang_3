@@ -20,6 +20,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #SSH dependency
+  ssh:
+
   #Video Player dependencies
   video_player:
 
