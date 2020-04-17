@@ -1,8 +1,9 @@
 //the livestream will be displayed on this widget 
-//importing the necessary files 
+//importing the necessary files
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player_controller.dart';
+import 'package:ssh/ssh.dart';
 
 class StreamBox extends StatefulWidget {
   @override
@@ -18,15 +19,29 @@ class _StreamBoxState extends State<StreamBox> {
     super.initState();
     _vlcViewController = new VlcPlayerController();
   }
-  void _refresh(){
+  final client = new SSHClient(
+                  host: "192.168.1.2",
+                  port: 22,
+                  username: "pi",
+                  passwordOrKey: "cmps253_Spring2020",);
+  
+  void _motioncontrol(String command) async {
+    String result;
+    result = await client.connect();
+    if (result == "session_connected")
+        result = await client.execute("python /home/pi/Desktop/ring/motion_controller.py " + command);
+  }
+
+  void _playstop(){
     setState(() {
       if (_streamUrl != null) {
         _streamUrl = null;
       } else {
-        _streamUrl = "http://raspberrypi:8081/";
+        _streamUrl = "http://cf559c8f.ngrok.io/";
       }
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +58,9 @@ class _StreamBoxState extends State<StreamBox> {
                           TextSpan(
                             text: 'Stream Closed',
                             style: TextStyle(
-                                fontSize: 14.0,
+                                fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.blue,
+                                color: Colors.black,
                                 ),
                           )
                         ]),
@@ -63,7 +78,7 @@ class _StreamBoxState extends State<StreamBox> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _refresh,
+        onPressed: _playstop,
         tooltip: 'Play/Pause',
         child: Icon(_streamUrl == null ? Icons.play_arrow : Icons.pause),
       ),
