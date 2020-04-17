@@ -1,6 +1,6 @@
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:rang/plugins/firetop/storage/fire_storage_service.dart';
 
 
 String image = "data/20:26 on 30-03-2020 .jpg"; //This is just to test wether the image will be displayed
@@ -15,72 +15,104 @@ class Home extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoadFirebaseStorageImage(),
+      home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-Future<Widget> _getImage(BuildContext context, String image) async {
-  Image m;
-  await FireStorageService.loadFromStorage(context, image).then((downloadUrl) {
-    m = Image.network(
-      downloadUrl.toString(),
-      fit: BoxFit.scaleDown,
-    );
-
-  });
-  return m;
+class MyHomePage extends StatefulWidget {
+  @override 
+  _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class LoadFirebaseStorageImage extends StatefulWidget {
-  @override
-  _LoadFirbaseStorageImageState createState() =>
-      _LoadFirbaseStorageImageState();
-}
-
-
-
-class _LoadFirbaseStorageImageState extends State<LoadFirebaseStorageImage> {
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: FutureBuilder(
-          future: _getImage(context, image),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState ==
-                ConnectionState.done)
-              return Container(
-                height:
-                MediaQuery
-                    .of(context)
-                    .size
-                    .height / 1.25,
-                width:
-                MediaQuery
-                    .of(context)
-                    .size
-                    .width / 1.25,
-                child: snapshot.data,
-              );
+      body: StreamBuilder(
+        stream: Firestore.instance.collection("assets").snapshots(),
+        builder: (context, snapshot) {
+          if(!snapshot.hasData) {
+            return Text("Loading data... Please Wait.");
+          } else {
+            return Center(
+              child: Container(
+                padding: EdgeInsets.all(50.0),
+                child: CachedNetworkImage(
+                  imageUrl: snapshot.data.documents[0]['image_url'],
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                ),
+              ),
+            );
+          }
+        },
+      ),
+    );
+  }
+}
 
-            if (snapshot.connectionState ==
-                ConnectionState.waiting)
-              return Container(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height /
-                      1.25,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width /
-                      1.25,
-                  child: CircularProgressIndicator());
-            return Container();
-          })));}}
+
+// Future<Widget> _getImage(BuildContext context, String image) async {
+//   Image m;
+//   await FireStorageService.loadFromStorage(context, image).then((downloadUrl) {
+//     m = Image.network(
+//       downloadUrl.toString(),
+//       fit: BoxFit.scaleDown,
+//     );
+
+//   });
+//   return m;
+// }
+
+// class LoadFirebaseStorageImage extends StatefulWidget {
+//   @override
+//   _LoadFirbaseStorageImageState createState() =>
+//       _LoadFirbaseStorageImageState();
+// }
+
+
+
+// class _LoadFirbaseStorageImageState extends State<LoadFirebaseStorageImage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//           child: FutureBuilder(
+//           future: _getImage(context, image),
+//           builder: (context, snapshot) {
+//             if (snapshot.connectionState ==
+//                 ConnectionState.done)
+//               return Container(
+//                 height:
+//                 MediaQuery
+//                     .of(context)
+//                     .size
+//                     .height / 1.25,
+//                 width:
+//                 MediaQuery
+//                     .of(context)
+//                     .size
+//                     .width / 1.25,
+//                 child: snapshot.data,
+//               );
+
+//             if (snapshot.connectionState ==
+//                 ConnectionState.waiting)
+//               return Container(
+//                   height: MediaQuery
+//                       .of(context)
+//                       .size
+//                       .height /
+//                       1.25,
+//                   width: MediaQuery
+//                       .of(context)
+//                       .size
+//                       .width /
+//                       1.25,
+//                   child: CircularProgressIndicator());
+//             return Container();
+//           })));}}
 
 
 

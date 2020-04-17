@@ -20,9 +20,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  #SSH dependency
-  ssh:
-
   #Video Player dependencies
   video_player:
 
@@ -31,13 +28,20 @@ dependencies:
 
   #FireBase dependencies
   firebase_storage: ^3.0.8
-  firebase_core: ^0.4.0+9
   firebase_analytics: ^5.0.6
 
+  # Cloud Firestore dependencies 
+  firebase_core: ^0.4.3+1
+  cloud_firestore: ^0.13.0+1
+  cloud_functions: ^0.4.1+6
+  firebase_auth: ^0.15.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+
+  #Cached Network Image Dependency
+  cached_network_image: ^2.0.0
 
 dev_dependencies:
   flutter_test:
