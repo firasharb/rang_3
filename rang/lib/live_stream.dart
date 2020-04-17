@@ -36,9 +36,7 @@ class _StreamBoxState extends State<StreamBox> {
     setState(() {
       if (_streamUrl != null) {
         _streamUrl = null;
-        _motioncontrol("stop");
       } else {
-        _motioncontrol("start");
         _streamUrl = "http://cf559c8f.ngrok.io/";
       }
     });
