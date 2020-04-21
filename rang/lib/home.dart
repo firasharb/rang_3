@@ -32,17 +32,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-        stream: Firestore.instance.collection("assets").snapshots(),
+        stream: Firestore.instance.collection("latest").snapshots(),
         builder: (context, snapshot) {
           if(!snapshot.hasData) {
             return Text("Loading data... Please Wait.");
           } else {
             return Center(
               child: Container(
-                padding: EdgeInsets.all(50.0),
-                child: CachedNetworkImage(
-                  imageUrl: snapshot.data.documents[0]['image_url'],
-                  placeholder: (context, url) => CircularProgressIndicator(),
+                padding: EdgeInsets.all(8.0),
+                child: Image.network(
+                  snapshot.data.documents[0]['image_url'],
+                  //placeholder: (context, url) => CircularProgressIndicator(),
                 ),
               ),
             );

@@ -37,7 +37,7 @@ class _StreamBoxState extends State<StreamBox> {
       if (_streamUrl != null) {
         _streamUrl = null;
       } else {
-        _streamUrl = "http://cf559c8f.ngrok.io/";
+        _streamUrl = "http://27484703.ngrok.io/";
       }
     });
   }
