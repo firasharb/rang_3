@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
                 title: Text(mainAppBarTitle),
               ),
               drawer: Drawer(
-                child: ListView(
+                child: SafeArea(child: ListView(
                   padding: EdgeInsets.zero,
                   children: <Widget>[
                     ListTile(
@@ -83,6 +83,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 ),
+              ),
               ),
               body: mainWidget, 
             ),
