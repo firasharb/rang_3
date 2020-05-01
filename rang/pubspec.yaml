@@ -20,6 +20,9 @@ dependencies:
   flutter:
     sdk: flutter
       
+  #Provider dependency
+  provider: ^4.0.5+1
+  
   #SSH dependency
   ssh:
 

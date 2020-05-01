@@ -1,99 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:rang/models/user.dart';
+import 'package:rang/services/auth.dart';
 import 'package:rang/services/cloud_messaging.dart';
-import 'home.dart';
-import 'activity_log.dart';
-import 'live_stream.dart';
-import 'devices.dart';
-import 'users.dart';
+import 'package:rang/wrapper.dart';
+
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  
-  Widget mainWidget = Home();
-  var mainAppBarTitle = "Home";
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Builder(
-        builder: (context) =>
-            Scaffold(
-              appBar: AppBar(
-                title: Text(mainAppBarTitle),
-              ),
-              drawer: Drawer(
-                child: SafeArea(child: ListView(
-                  padding: EdgeInsets.zero,
-                  children: <Widget>[
-                    ListTile(
-                      title: Text('Home'),
-                      onTap: () {
-                        setState(() {
-                          mainWidget = Home();
-                          mainAppBarTitle = "Home";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Activity Log'),
-                      onTap: () {
-                        setState(() {
-                          mainWidget = ActivityLog();
-                          mainAppBarTitle = "Activity Log";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Live Stream'),
-                      onTap: () {
-                        setState(() {
-                          mainWidget = LiveStream();
-                          mainAppBarTitle = "Live Stream";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Devices'),
-                      onTap: () {
-                        setState(() {
-                          mainWidget = Devices();
-                          mainAppBarTitle = "Devices";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Users'),
-                      onTap: () {
-                        setState(() {
-                          mainWidget = Users();
-                          mainAppBarTitle = "Users";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              ),
-              body: mainWidget, 
-            ),
-      ),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: const Color(0xFF02BB9F),
-        primaryColorDark: const Color(0xFF167F67),
-        accentColor: const Color(0xFF167F67),
-      ),
+  //_MyAppState createState() => _MyAppState();
+  Widget build(BuildContext context){
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+        child: MaterialApp(
+          home: Wrapper(),
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primaryColor: const Color(0xFF02BB9F),
+            primaryColorDark: const Color(0xFF167F67),
+            accentColor: const Color(0xFF167F67), 
+        ),
+        ), 
     );
   }
 }
